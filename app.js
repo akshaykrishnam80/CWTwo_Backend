@@ -49,7 +49,7 @@ app.get('/collection/:param', async (request, res) => {
 
 app.get('/search/:param', async (req, res) => {
     const { param } = req.params;
-    const collection = req.dbClient.db(dbName).collection('lessons'); 
+    const collection = req.dbClient.db(dbName).collection('lessons');
 
     try {
 
@@ -61,7 +61,7 @@ app.get('/search/:param', async (req, res) => {
                 { item_name: searchRegex }
             ]
         };
-        
+
         const data = await collection.find(searchQuery).toArray();
         res.json(data);
     } catch (error) {
