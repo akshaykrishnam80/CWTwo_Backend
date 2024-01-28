@@ -18,6 +18,9 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log', 'access
 
 app.use(bodyParser.json());
 
+app.use(express.static('public'));
+
+app.use('/static', express.static('public'));
 
 app.use(loger('combined', { stream: accessLogStream }));
 
